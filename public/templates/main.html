@@ -4,8 +4,80 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Gurmehar Singh</title>
+	<link href='https://fonts.googleapis.com/css?family=Noto Nastaliq Urdu' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+	<style>
+		body{
+			background-color: #123;
+			overflow-y: scroll;
+		}
+
+		#heading{
+			font-family: 'Noto Nastaliq Urdu';
+			position: relative;
+			text-align: center;
+			font-size: 5vh;
+			color: white;
+		}
+
+		.poem{
+			position: relative;
+			width: 50%;
+			left: 50%;
+			color: white;
+			transform: translate(-50%, 0%);
+			overflow-x: wrap;
+			margin-top: 3%;
+			margin-bottom: 13%;
+			text-align: right;
+			font-size: 3vh;
+		}
+
+		.poem.urdu {
+			font-family: 'Noto Nastaliq Urdu';
+		}
+
+		.date {
+			font-family: Source Code Pro, Courier;
+		}
+	</style>
 </head>
 <body>
-	
+	<!-- do chashmi he in case
+		ھ 
+	-->
+	<div id="heading">
+		شاعرىِ گرميهر
+	</div>
+
+	<div class="poem urdu">
+		<div class="date">30 November 2022</div>
+		هو سكتى هے موتِ سورج
+		<br>
+		پھر بھى انتظار كروں گا
+		<br>
+		كيوںكى آنكھيں نے ديكھ ليے هے
+		<br>
+		وه الهي عشق جه تمنے ديا تھا
+		<br><br>
+		اور هوگي ايك دن موتِ قمر
+		<br>
+		ةھر بھي دل ميں هوگي وه نور
+		<br>
+		جه هر رهز تيرے ليے چمكتا هے
+		<br>
+		هو جه خدا نے بھي بلاديا منظور
+	</div>
+
+	<div class="poem arabic">
+		<div class="date">7 December 2022</div>
+		مع حبي
+		<br>
+		ساخد قلبك معاي
+		<br>
+		مع عيونك
+		<br>
+		ستخدين قلبي معاك
+	</div>
 </body>
 </html>
