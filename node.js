@@ -12,4 +12,4 @@ app.get("/", (req, res) => {
 	res.sendFile("public/templates/main.html", {root: __dirname})
 })
 
-app.listen(port, host)
+app.listen(process.env.PORT || port, host)
