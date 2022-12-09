@@ -5,79 +5,76 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Gurmehar Singh</title>
 	<link href='https://fonts.googleapis.com/css?family=Noto Nastaliq Urdu' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Noto Naskh Arabic' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 	<style>
 		body{
-			background-color: #123;
+			background-color: #201f1f;
 			overflow-y: scroll;
 		}
 
 		#heading{
-			font-family: 'Noto Nastaliq Urdu';
+			font-family: Source Code Pro, Courier;
 			position: relative;
 			text-align: center;
-			font-size: 5vh;
+			font-size: 7vh;
 			color: white;
-		}
-
-		.poem{
-			position: relative;
-			width: 50%;
-			left: 50%;
-			color: white;
-			transform: translate(-50%, 0%);
-			overflow-x: wrap;
-			margin-top: 3%;
-			margin-bottom: 13%;
-			text-align: right;
-			font-size: 3vh;
-		}
-
-		.poem.urdu {
-			font-family: 'Noto Nastaliq Urdu';
-		}
-
-		.date {
-			font-family: Source Code Pro, Courier;
 		}
 	</style>
 </head>
 <body>
-	<!-- do chashmi he in case
-		ھ 
-	-->
 	<div id="heading">
-		شاعرىِ گرميهر
-	</div>
-
-	<div class="poem urdu">
-		<div class="date">30 November 2022</div>
-		هو سكتى هے موتِ سورج
-		<br>
-		پھر بھى انتظار كروں گا
-		<br>
-		كيوںكى آنكھيں نے ديكھ ليے هے
-		<br>
-		وه الهي عشق جه تمنے ديا تھا
-		<br><br>
-		اور هوگي ايك دن موتِ قمر
-		<br>
-		ةھر بھي دل ميں هوگي وه نور
-		<br>
-		جو هر رهز تيرے ليے چمكتا هے
-		<br>
-		وه جو خدا نے بھي بلاديا منظور
-	</div>
-
-	<div class="poem arabic">
-		<div class="date">7 December 2022</div>
-		مع حبي
-		<br>
-		ساخد قلبك معاي
-		<br>
-		مع عيونك
-		<br>
-		ستخدين قلبي معاك
+		
 	</div>
 </body>
+<script>
+	function titleAnimation(l, n, el, t, decay, floor){
+		if (n >= l.length){
+			return
+		}
+		el.innerHTML = l[n];
+		if (t < floor){
+			t = floor
+		}
+		setTimeout(function(){
+			titleAnimation(l, n + 1, el, t * decay, decay)
+		}, t)
+	}
+
+	function animateTitleOpening(elementId, endText){
+		var element = document.getElementById(elementId)
+		var textIterations = []
+		textIterations.push(endText)
+		var lettersRemoved = []
+		var lettersToRemove = endText.split("")
+
+		for (var i = 0; i < Math.round(endText.length * 2); i++){
+			var newText = textIterations[textIterations.length - 1]
+			if (i % 2 == 1){
+				var targetLetter = lettersToRemove[Math.floor(Math.random() * lettersToRemove.length)]
+				lettersToRemove.splice(lettersToRemove.indexOf(targetLetter), 1)
+				lettersRemoved.push(targetLetter)
+				var randomNumber = String(Math.round(Math.random()))
+				newText = newText.replace(targetLetter, randomNumber)
+			}
+
+			//add a number either before or after the string
+			var randomNumber = String(Math.round(Math.random()))
+			if (Math.random() < 0.5){
+				newText = randomNumber + newText
+			}
+			else{
+				newText = newText + randomNumber
+			}
+
+			textIterations.push(newText)
+		}
+
+		textIterations.reverse()
+
+		titleAnimation(textIterations, 0, element, 200, 0.8, 120)
+	}
+
+	animateTitleOpening("heading", "Gurmehar Singh")
+</script>
 </html>

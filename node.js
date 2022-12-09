@@ -9,7 +9,12 @@ const host = '0.0.0.0'
 app.use(express.static('public'));
 
 app.get("/", (req, res) => {
-	res.sendFile("public/templates/main.html", {root: __dirname})
+	res.sendFile("public/templates/poetry.html", {root: __dirname})
 })
 
+/*
+app.get("/poetry", (req, res) => {
+	res.sendFile("public/templates/poetry.html", {root: __dirname})
+})
+*/
 app.listen(process.env.PORT || port, host)
